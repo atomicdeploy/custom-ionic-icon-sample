@@ -33,6 +33,13 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
+    // Serve the assets directory for icon tests
+    files: [
+      { pattern: 'src/assets/**/*', watched: false, included: false, served: true, nocache: false }
+    ],
+    proxies: {
+      '/assets/': '/base/src/assets/'
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
