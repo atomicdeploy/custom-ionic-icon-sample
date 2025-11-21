@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+import { addIcons } from 'ionicons';
+import { star, heart, rocket } from 'ionicons/icons';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
+  standalone: false,
+})
+export class AppComponent {
+  constructor() {
+    // Register built-in icons for comparison
+    addIcons({ star, heart, rocket });
+  }
+}
