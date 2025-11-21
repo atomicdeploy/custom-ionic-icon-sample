@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Custom Ionic Icons Test
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Custom Ionic Icons Test</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h2>Built-in Icons</h2>
+    <p>These icons are loaded from the ionicons package:</p>
+    <div class="icon-row">
+      <div class="icon-item">
+        <ion-icon name="star" id="builtin-star" size="large"></ion-icon>
+        <p>star</p>
+      </div>
+      <div class="icon-item">
+        <ion-icon name="heart" id="builtin-heart" size="large"></ion-icon>
+        <p>heart</p>
+      </div>
+      <div class="icon-item">
+        <ion-icon name="rocket" id="builtin-rocket" size="large"></ion-icon>
+        <p>rocket</p>
+      </div>
+    </div>
+
+    <h2>Custom Icons</h2>
+    <p>These icons are loaded from custom SVG files:</p>
+    <div class="icon-row">
+      <div class="icon-item">
+        <ion-icon src="/assets/icons/custom-star.svg" id="custom-star" size="large"></ion-icon>
+        <p>custom-star</p>
+      </div>
+      <div class="icon-item">
+        <ion-icon src="/assets/icons/custom-heart.svg" id="custom-heart" size="large"></ion-icon>
+        <p>custom-heart</p>
+      </div>
+      <div class="icon-item">
+        <ion-icon src="/assets/icons/custom-rocket.svg" id="custom-rocket" size="large"></ion-icon>
+        <p>custom-rocket</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
