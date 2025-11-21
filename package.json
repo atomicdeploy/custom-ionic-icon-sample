@@ -1,0 +1,27 @@
+{
+  "name": "custom-ionic-icon-sample",
+  "version": "1.0.0",
+  "description": "A test project to use custom icons using SVGs in Ionic",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ionic/vue": "^8.7.10",
+    "@ionic/vue-router": "^8.7.10",
+    "ionicons": "^8.0.13",
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/compiler-sfc": "^3.5.24",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4"
+  }
+}
