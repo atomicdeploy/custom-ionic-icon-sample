@@ -28,13 +28,13 @@
               <div class="icon-item">
                 <ion-icon :icon="customRocket" size="large" color="primary"></ion-icon>
                 <p>Custom Rocket Icon</p>
-                <code>&lt;ion-icon icon="custom-rocket"&gt;</code>
+                <code>&lt;ion-icon :icon="customRocket"&gt;</code>
               </div>
               
               <div class="icon-item">
                 <ion-icon :icon="customStar" size="large" color="warning"></ion-icon>
                 <p>Custom Star Icon</p>
-                <code>&lt;ion-icon icon="custom-star"&gt;</code>
+                <code>&lt;ion-icon :icon="customStar"&gt;</code>
               </div>
             </div>
           </ion-card-content>
@@ -121,7 +121,7 @@
               <li>Place your SVG files in <code>src/assets/icons/</code></li>
               <li>Import them in <code>main.js</code> using <code>?raw</code> query</li>
               <li>Register them with <code>addIcons()</code> from ionicons</li>
-              <li>Use them with <code>&lt;ion-icon :icon="iconName"&gt;</code></li>
+              <li>Define and use them with <code>&lt;ion-icon :icon="customRocket"&gt;</code> where <code>customRocket: 'custom-rocket'</code> in setup()</li>
             </ol>
           </ion-card-content>
         </ion-card>
