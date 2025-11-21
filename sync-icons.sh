@@ -11,7 +11,11 @@ echo "Syncing shared icons to Vue and Angular apps..."
 # Sync to Vue app
 echo "  -> Copying icons to vue-app/public/assets/icons/"
 mkdir -p vue-app/public/assets/icons
-cp -r shared/assets/icons/* vue-app/public/assets/icons/
+if [ -d "shared/assets/icons" ] && [ "$(ls -A shared/assets/icons 2>/dev/null)" ]; then
+  cp -r shared/assets/icons/* vue-app/public/assets/icons/
+else
+  echo "  Warning: No icons found in shared/assets/icons/"
+fi
 
 # Angular app uses symlink (works better with Angular build)
 echo "  -> Creating symlink for angular-app/src/assets/icons/"

@@ -31,9 +31,11 @@ addIcons({
   'rocket': rocket
 });
 
-// Note: Custom icons are now loaded using the src attribute directly
+// Note: Custom icons are loaded using the src attribute directly
 // in the components (e.g., src="/assets/icons/custom-rocket.svg")
-// This approach ensures icons render properly in the shadow-root
+// This approach ensures icons render properly in the shadow-root.
+// DO NOT use addIcons() for custom SVG files as it results in empty 
+// icon-inner elements in the shadow-root, preventing icons from displaying.
 
 const app = createApp(App)
   .use(IonicVue)
