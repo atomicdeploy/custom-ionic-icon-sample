@@ -19,22 +19,57 @@
         
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Custom Icons</ion-card-title>
-            <ion-card-subtitle>Using SVG files as Ionic icons</ion-card-subtitle>
+            <ion-card-title>Built-in Icons</ion-card-title>
+            <ion-card-subtitle>Standard Ionicons</ion-card-subtitle>
           </ion-card-header>
           
           <ion-card-content>
             <div class="icon-showcase">
               <div class="icon-item">
-                <ion-icon :icon="customRocket" size="large" color="primary"></ion-icon>
-                <p>Custom Rocket Icon</p>
-                <code>&lt;ion-icon :icon="customRocket"&gt;</code>
+                <ion-icon name="star" id="builtin-star" size="large" color="warning"></ion-icon>
+                <p>Built-in Star</p>
+                <code>&lt;ion-icon name="star"&gt;</code>
               </div>
               
               <div class="icon-item">
-                <ion-icon :icon="customStar" size="large" color="warning"></ion-icon>
+                <ion-icon name="heart" id="builtin-heart" size="large" color="danger"></ion-icon>
+                <p>Built-in Heart</p>
+                <code>&lt;ion-icon name="heart"&gt;</code>
+              </div>
+              
+              <div class="icon-item">
+                <ion-icon name="rocket" id="builtin-rocket" size="large" color="primary"></ion-icon>
+                <p>Built-in Rocket</p>
+                <code>&lt;ion-icon name="rocket"&gt;</code>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+        
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Custom Icons</ion-card-title>
+            <ion-card-subtitle>Using SVG files as Ionic icons with src attribute</ion-card-subtitle>
+          </ion-card-header>
+          
+          <ion-card-content>
+            <div class="icon-showcase">
+              <div class="icon-item">
+                <ion-icon src="/assets/icons/custom-star.svg" id="custom-star" size="large" color="warning"></ion-icon>
                 <p>Custom Star Icon</p>
-                <code>&lt;ion-icon :icon="customStar"&gt;</code>
+                <code>&lt;ion-icon src="/assets/icons/..."&gt;</code>
+              </div>
+              
+              <div class="icon-item">
+                <ion-icon src="/assets/icons/custom-heart.svg" id="custom-heart" size="large" color="danger"></ion-icon>
+                <p>Custom Heart Icon</p>
+                <code>&lt;ion-icon src="/assets/icons/..."&gt;</code>
+              </div>
+              
+              <div class="icon-item">
+                <ion-icon src="/assets/icons/custom-rocket.svg" id="custom-rocket" size="large" color="primary"></ion-icon>
+                <p>Custom Rocket Icon</p>
+                <code>&lt;ion-icon src="/assets/icons/..."&gt;</code>
               </div>
             </div>
           </ion-card-content>
@@ -49,15 +84,15 @@
           <ion-card-content>
             <div class="size-showcase">
               <div class="size-item">
-                <ion-icon :icon="customRocket" size="small"></ion-icon>
+                <ion-icon src="/assets/icons/custom-rocket.svg" size="small"></ion-icon>
                 <p>Small</p>
               </div>
               <div class="size-item">
-                <ion-icon :icon="customRocket"></ion-icon>
+                <ion-icon src="/assets/icons/custom-rocket.svg"></ion-icon>
                 <p>Default</p>
               </div>
               <div class="size-item">
-                <ion-icon :icon="customRocket" size="large"></ion-icon>
+                <ion-icon src="/assets/icons/custom-rocket.svg" size="large"></ion-icon>
                 <p>Large</p>
               </div>
             </div>
@@ -72,12 +107,12 @@
           
           <ion-card-content>
             <div class="color-showcase">
-              <ion-icon :icon="customStar" size="large" color="primary"></ion-icon>
-              <ion-icon :icon="customStar" size="large" color="secondary"></ion-icon>
-              <ion-icon :icon="customStar" size="large" color="tertiary"></ion-icon>
-              <ion-icon :icon="customStar" size="large" color="success"></ion-icon>
-              <ion-icon :icon="customStar" size="large" color="warning"></ion-icon>
-              <ion-icon :icon="customStar" size="large" color="danger"></ion-icon>
+              <ion-icon src="/assets/icons/custom-star.svg" size="large" color="primary"></ion-icon>
+              <ion-icon src="/assets/icons/custom-star.svg" size="large" color="secondary"></ion-icon>
+              <ion-icon src="/assets/icons/custom-star.svg" size="large" color="tertiary"></ion-icon>
+              <ion-icon src="/assets/icons/custom-star.svg" size="large" color="success"></ion-icon>
+              <ion-icon src="/assets/icons/custom-star.svg" size="large" color="warning"></ion-icon>
+              <ion-icon src="/assets/icons/custom-star.svg" size="large" color="danger"></ion-icon>
             </div>
           </ion-card-content>
         </ion-card>
@@ -91,21 +126,21 @@
           <ion-card-content>
             <div class="button-showcase">
               <ion-button>
-                <ion-icon slot="start" :icon="customRocket"></ion-icon>
+                <ion-icon slot="start" src="/assets/icons/custom-rocket.svg"></ion-icon>
                 Launch
               </ion-button>
               
               <ion-button color="warning">
-                <ion-icon slot="start" :icon="customStar"></ion-icon>
+                <ion-icon slot="start" src="/assets/icons/custom-star.svg"></ion-icon>
                 Favorite
               </ion-button>
               
               <ion-button fill="outline" color="primary">
-                <ion-icon slot="icon-only" :icon="customRocket"></ion-icon>
+                <ion-icon slot="icon-only" src="/assets/icons/custom-rocket.svg"></ion-icon>
               </ion-button>
               
               <ion-button fill="clear" color="warning">
-                <ion-icon slot="icon-only" :icon="customStar"></ion-icon>
+                <ion-icon slot="icon-only" src="/assets/icons/custom-star.svg"></ion-icon>
               </ion-button>
             </div>
           </ion-card-content>
@@ -118,10 +153,10 @@
           
           <ion-card-content>
             <ol class="instructions">
-              <li>Place your SVG files in <code>src/assets/icons/</code></li>
-              <li>Import them in <code>main.js</code> using <code>?raw</code> query</li>
-              <li>Register them with <code>addIcons()</code> from ionicons</li>
-              <li>Define and use them with <code>&lt;ion-icon :icon="customRocket"&gt;</code> where <code>customRocket: 'custom-rocket'</code> in setup()</li>
+              <li>Place your SVG files in <code>shared/assets/icons/</code></li>
+              <li>Use the <code>src</code> attribute to reference them: <code>&lt;ion-icon src="/assets/icons/custom-icon.svg"&gt;</code></li>
+              <li>The icons will render properly in the shadow-root with content in icon-inner</li>
+              <li>This approach works consistently across both Vue3 and Angular implementations</li>
             </ol>
           </ion-card-content>
         </ion-card>
@@ -161,12 +196,6 @@ export default {
     IonCardSubtitle,
     IonIcon,
     IonButton
-  },
-  setup() {
-    return {
-      customRocket: 'custom-rocket',
-      customStar: 'custom-star'
-    };
   }
 };
 </script>

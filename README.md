@@ -1,263 +1,214 @@
 # Custom Ionic Icon Sample
 
-A test project to use custom icons using SVGs in Ionic Vue3.
+A comprehensive test project demonstrating how to use custom SVG icons in Ionic applications with both **Vue3** and **Angular** frameworks.
 
 ## Overview
 
-This project demonstrates how to create and use custom SVG icons in an Ionic Vue3 application. It includes:
-- Custom SVG icon integration
-- Multiple icon examples (rocket and star)
-- Different sizes, colors, and use cases
-- Complete working demo page
+This repository contains two complete implementations:
+- **Vue3 Application** (`vue-app/`) - Ionic Vue3 with custom icon support
+- **Angular Application** (`angular-app/`) - Ionic Angular with custom icon support and comprehensive tests
 
-## Prerequisites
+Both implementations share the same custom SVG icons stored in the `shared/assets/icons/` directory, following the DRY (Don't Repeat Yourself) principle.
 
-- Node.js (v16 or higher)
-- npm or yarn
+## Key Features
 
-## Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/atomicdeploy/custom-ionic-icon-sample.git
-cd custom-ionic-icon-sample
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-## Running the Application
-
-Start the development server:
-```bash
-npm run dev
-```
-
-The application will be available at `http://localhost:8100`
-
-## Building for Production
-
-Build the application:
-```bash
-npm run build
-```
-
-Preview the production build:
-```bash
-npm run preview
-```
-
-## How to Add Custom Icons
-
-### 1. Add Your SVG File
-
-Place your SVG files in the `src/assets/icons/` directory. For example:
-- `src/assets/icons/custom-rocket.svg`
-- `src/assets/icons/custom-star.svg`
-
-### 2. Import and Register Icons
-
-In `src/main.js`, import your SVG files using the `?raw` query parameter and register them:
-
-```javascript
-import { addIcons } from 'ionicons';
-import customRocketIcon from './assets/icons/custom-rocket.svg?raw';
-import customStarIcon from './assets/icons/custom-star.svg?raw';
-
-// Register custom icons
-addIcons({
-  'custom-rocket': customRocketIcon,
-  'custom-star': customStarIcon
-});
-```
-
-### 3. Use Icons in Components
-
-Use your custom icons with the `ion-icon` component:
-
-```vue
-<template>
-  <ion-icon :icon="customRocket"></ion-icon>
-</template>
-
-<script>
-export default {
-  setup() {
-    return {
-      customRocket: 'custom-rocket'
-    };
-  }
-};
-</script>
-```
-
-## Icon Usage Examples
-
-### Different Sizes
-```vue
-<ion-icon :icon="customRocket" size="small"></ion-icon>
-<ion-icon :icon="customRocket"></ion-icon>
-<ion-icon :icon="customRocket" size="large"></ion-icon>
-```
-
-### Different Colors
-```vue
-<ion-icon :icon="customStar" color="primary"></ion-icon>
-<ion-icon :icon="customStar" color="warning"></ion-icon>
-<ion-icon :icon="customStar" color="danger"></ion-icon>
-```
-
-### In Buttons
-```vue
-<ion-button>
-  <ion-icon slot="start" :icon="customRocket"></ion-icon>
-  Launch
-</ion-button>
-
-<ion-button fill="outline">
-  <ion-icon slot="icon-only" :icon="customStar"></ion-icon>
-</ion-button>
-```
+- ✅ Custom SVG icon integration using the `src` attribute approach
+- ✅ Shared icon assets between Vue3 and Angular implementations
+- ✅ Comprehensive test suites verifying shadow-root rendering
+- ✅ Multiple icon examples (rocket, star, heart)
+- ✅ Different sizes, colors, and use cases
+- ✅ Complete working demo pages for both frameworks
 
 ## Project Structure
 
 ```
 custom-ionic-icon-sample/
-├── src/
-│   ├── assets/
-│   │   └── icons/           # Custom SVG icons
-│   │       ├── custom-rocket.svg
-│   │       └── custom-star.svg
-│   ├── components/          # Vue components
-│   ├── router/              # Vue Router configuration
-│   │   └── index.js
-│   ├── theme/               # Ionic theme and CSS variables
-│   │   └── variables.css
-│   ├── views/               # Page components
-│   │   └── Home.vue
-│   ├── App.vue              # Root component
-│   └── main.js              # Application entry point
-├── index.html               # HTML template
-├── vite.config.js           # Vite configuration
-└── package.json             # Dependencies and scripts
+├── shared/
+│   └── assets/
+│       └── icons/              # Shared custom SVG icons (source of truth)
+│           ├── custom-rocket.svg
+│           ├── custom-star.svg
+│           └── custom-heart.svg
+├── vue-app/                    # Vue3 implementation
+│   ├── src/
+│   │   ├── views/
+│   │   │   ├── Home.vue       # Demo page
+│   │   │   └── Home.spec.js   # Comprehensive tests
+│   │   ├── main.js
+│   │   └── App.vue
+│   ├── public/
+│   │   └── assets/
+│   │       └── icons/         # Icons copied from shared/ (see sync-icons.sh)
+│   └── package.json
+├── angular-app/                # Angular implementation
+│   ├── src/
+│   │   ├── app/
+│   │   │   └── home/
+│   │   │       ├── home.page.html
+│   │   │       ├── home.page.ts
+│   │   │       └── home.page.spec.ts  # Comprehensive tests
+│   │   └── assets/
+│   │       └── icons/         # Symlink to shared/assets/icons/
+│   ├── TESTING.md             # Detailed testing documentation
+│   └── package.json
+├── sync-icons.sh              # Script to sync icons to both apps
+└── README.md                  # This file
 ```
 
-## Technologies Used
+## Prerequisites
 
-- **Ionic Framework**: v8.7.10
-- **Vue.js**: v3.5.24
-- **Vite**: v7.2.4
-- **Ionicons**: v8.0.13
+- Node.js (v16 or higher for Vue3, v20 or higher for Angular)
+- npm (v10 or higher)
 
-## Tips for Custom Icons
+## Installation
 
-1. **SVG Optimization**: Optimize your SVG files before adding them to reduce file size
-2. **Viewbox**: Ensure your SVG has a proper `viewBox` attribute for proper scaling
-3. **Paths**: Use `<path>` elements for better control and smaller file sizes
-4. **Colors**: Remove fill colors from SVG if you want to control colors via Ionic's color prop
-
-## License
-
-ISC
-
-## Author
-
-Created as a demonstration project for using custom SVG icons in Ionic Vue3.
-# custom-ionic-icon-sample
-
-A test project to use custom icons using SVGs in Ionic, with comprehensive tests to verify icon rendering in the shadow DOM.
-
-## Features
-
-- Demonstrates both built-in and custom Ionic icons
-- Includes tests that verify icon rendering in shadow-root
-- Compares custom icons with built-in icons to ensure consistent behavior
-- Addresses the issue where custom icons may have empty icon-inner elements in the shadow-root
-
-## Project Structure
-
-- `ionic-app/` - Ionic Angular application
-  - `src/assets/icons/` - Custom SVG icon files
-  - `src/app/home/` - Home page with icon demonstrations
-  - `src/app/home/home.page.spec.ts` - Comprehensive tests for icon rendering
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v20 or later)
-- npm (v10 or later)
-
-### Installation
+### Install All Dependencies
 
 ```bash
-cd ionic-app
+# Install Vue3 dependencies
+cd vue-app
 npm install
+cd ..
+
+# Install Angular dependencies
+cd angular-app
+npm install
+cd ..
 ```
 
-### Running the App
+### Sync Icons
 
-To run the application in development mode:
+After cloning, sync the shared icons to both applications:
 
 ```bash
-cd ionic-app
+./sync-icons.sh
+```
+
+This script:
+- Copies icons from `shared/assets/icons/` to `vue-app/public/assets/icons/`
+- Creates a symlink from `angular-app/src/assets/icons/` to `shared/assets/icons/`
+
+## Running the Applications
+
+### Vue3 Application
+
+```bash
+cd vue-app
+npm run dev
+```
+
+The Vue3 app will be available at `http://localhost:8100`
+
+### Angular Application
+
+```bash
+cd angular-app
 npm start
 # or
 ionic serve
 ```
 
-The app will be available at `http://localhost:8100`
+The Angular app will be available at `http://localhost:8100`
 
-### Building the App
+## Building for Production
 
-To build the application for production:
+### Vue3
 
 ```bash
-cd ionic-app
+cd vue-app
+npm run build
+npm run preview  # Preview the production build
+```
+
+### Angular
+
+```bash
+cd angular-app
 npm run build
 ```
 
-### Running Tests
+## Running Tests
 
-To run the test suite:
-
-```bash
-cd ionic-app
-npm test
-```
-
-For headless testing (useful in CI/CD):
+### Vue3 Tests
 
 ```bash
-cd ionic-app
-npm test -- --watch=false --browsers=ChromeHeadless
+cd vue-app
+npm test              # Run tests once
+npm run test:watch    # Run tests in watch mode
 ```
 
-## Custom Icon Implementation
+### Angular Tests
 
-Custom icons are implemented using the `src` attribute on `ion-icon` elements:
-
-```html
-<ion-icon src="/assets/icons/custom-star.svg"></ion-icon>
+```bash
+cd angular-app
+npm test                                                          # Interactive mode
+npm test -- --watch=false --browsers=ChromeHeadless             # CI mode
 ```
 
-This approach ensures that custom icons:
-- Load properly from SVG files
-- Render content in the shadow-root's icon-inner element
-- Display consistently with built-in Ionic icons
-
-## Testing Approach
-
-The test suite verifies that:
+Both test suites verify that:
 1. All icons (built-in and custom) have a shadow-root
-2. The shadow-root contains an `icon-inner` element with children
+2. The shadow-root contains an `icon-inner` element with children (not empty)
 3. The `icon-inner` element contains an SVG element
 4. Custom icons have the same structure as built-in icons
 
-This ensures that the issue of empty icon-inner elements is prevented and caught early.
+## How to Add Custom Icons
+
+### 1. Add Your SVG File
+
+Place your SVG files in the `shared/assets/icons/` directory.
+
+### 2. Sync Icons
+
+Run the sync script to copy icons to both apps:
+
+```bash
+./sync-icons.sh
+```
+
+### 3. Use Icons in Components
+
+#### Vue3 and Angular
+
+```html
+<ion-icon src="/assets/icons/custom-my-icon.svg" size="large"></ion-icon>
+```
+
+## Important Implementation Notes
+
+### Why Use the `src` Attribute?
+
+Both implementations use the `src` attribute to load custom SVG icons.
+
+**This approach was chosen because:**
+
+1. ✅ Icons render properly in the shadow-root
+2. ✅ The `icon-inner` element contains actual SVG content (not empty)
+3. ✅ Works consistently across both Vue3 and Angular
+4. ✅ No need to register icons in code (simpler implementation)
+
+### Previous Approach (Vue3 - Not Working)
+
+The original Vue3 implementation used `addIcons()` from ionicons, which resulted in empty `icon-inner` elements.
+
+## Technologies Used
+
+### Vue3 Application
+- **Ionic Framework**: v8.7.10
+- **Vue.js**: v3.5.24
+- **Vite**: v7.2.4
+- **Ionicons**: v8.0.13
+- **Vitest**: v3.0.5 (testing)
+
+### Angular Application
+- **Ionic Framework**: v8.0.0
+- **Angular**: v20.0.0
+- **Ionicons**: v7.0.0
+- **Karma + Jasmine**: (testing)
+
+## Testing Approach
+
+Both implementations include comprehensive tests that verify icons render correctly. For more details, see [`angular-app/TESTING.md`](angular-app/TESTING.md).
 
 ## License
 
-This is a test/sample project.
+ISC

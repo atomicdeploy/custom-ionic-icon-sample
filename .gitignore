@@ -4,6 +4,11 @@ node_modules/
 # Production build
 /dist
 /www
+vue-app/dist
+angular-app/www
+
+# Copied icons (synced from shared/)
+vue-app/public/assets/icons/
 
 # Logs
 npm-debug.log*

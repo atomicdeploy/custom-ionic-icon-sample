@@ -20,16 +20,9 @@ import '@ionic/vue/css/display.css';
 // Custom styles
 import './theme/variables.css';
 
-// Import custom icons
-import { addIcons } from 'ionicons';
-import customRocketIcon from './assets/icons/custom-rocket.svg?raw';
-import customStarIcon from './assets/icons/custom-star.svg?raw';
-
-// Register custom icons
-addIcons({
-  'custom-rocket': customRocketIcon,
-  'custom-star': customStarIcon
-});
+// Note: Custom icons are now loaded using the src attribute directly
+// in the components (e.g., src="/assets/icons/custom-rocket.svg")
+// This approach ensures icons render properly in the shadow-root
 
 const app = createApp(App)
   .use(IonicVue)
