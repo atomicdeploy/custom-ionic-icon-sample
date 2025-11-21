@@ -23,7 +23,7 @@ describe('HomePage', () => {
   });
 
   // Helper function to wait for icon to load
-  async function waitForIconToLoad(iconElement: any, maxWait = 3000): Promise<void> {
+  async function waitForIconToLoad(iconElement: HTMLElement, maxWait = 3000): Promise<void> {
     const startTime = Date.now();
     
     while (Date.now() - startTime < maxWait) {

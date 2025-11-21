@@ -1,12 +1,14 @@
 {
-  "name": "custom-ionic-icon-sample",
+  "name": "custom-ionic-icon-sample-vue",
   "version": "1.0.0",
-  "description": "A test project to use custom icons using SVGs in Ionic",
+  "description": "A test project to use custom icons using SVGs in Ionic Vue3",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +23,10 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.2",
     "@vue/compiler-sfc": "^3.5.24",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^15.11.7",
     "typescript": "^5.9.3",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vitest": "^3.0.5"
   }
 }

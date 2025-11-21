@@ -11,5 +11,9 @@ export default defineConfig({
   },
   server: {
     port: 8100
+  },
+  test: {
+    globals: true,
+    environment: 'happy-dom'
   }
 });
